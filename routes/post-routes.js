@@ -7,7 +7,8 @@ import {
   deletePost,
   likePost,
   commentOnPost,
-} from "../controllers/post--controller.js";
+} from "../controllers/post-controller.js";
+import { check } from "express-validator";
 
 const router = express.Router();
 

@@ -1,13 +1,14 @@
 import express from "express";
-import { protect } from "../middleware/auth.js";
-import { validate } from "../middleware/error.js";
-import { groupValidation, postValidation } from "../middleware/validation.js";
+import { protect } from "../middleware/auth-middleware.js";
+import { validate } from "../middleware/error-middleware.js";
+import { groupValidation, postValidation } from "../middleware/validation-middleware.js";
 import {
   createGroup,
   getGroups,
   joinGroup,
   createGroupPost,
 } from "../controllers/group-controller.js";
+import { check } from "express-validator";
 
 const router = express.Router();
 

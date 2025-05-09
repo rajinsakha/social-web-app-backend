@@ -1,12 +1,13 @@
 import express from "express";
-import { protect, admin } from "../middleware/auth.js";
-import { validate } from "../middleware/error.js";
-import { reportValidation } from "../middleware/validation.js";
+import { protect, admin } from "../middleware/auth-middleware.js";
+import { validate } from "../middleware/error-middleware.js";
+import { reportValidation } from "../middleware/validation-middleware.js";
 import {
   createReport,
   getReports,
   resolveReport,
 } from "../controllers/moderation-controller.js";
+import { check } from "express-validator";
 
 const router = express.Router();
 

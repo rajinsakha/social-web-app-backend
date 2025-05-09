@@ -1,12 +1,13 @@
 import express from "express";
-import { protect } from "../middleware/auth.js";
-import { validate } from "../middleware/error.js";
-import { eventValidation } from "../middleware/validation.js";
+import { protect } from "../middleware/auth-middleware.js";
+import { validate } from "../middleware/error-middleware.js";
+import { eventValidation } from "../middleware/validation-middleware.js";
 import {
   getEvents,
   rsvpToEvent,
   createEvent,
 } from "../controllers/event-controller.js";
+import { check } from "express-validator";
 
 const router = express.Router();
 
