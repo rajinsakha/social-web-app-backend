@@ -6,6 +6,9 @@ const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET_KEY, { expiresIn: "30d" });
 };
 
+
+
+
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password, role } = req.body;
 
@@ -54,6 +57,12 @@ const loginUser = asyncHandler(async (req, res) => {
   }
 });
 
-export { registerUser, loginUser };
+const verifyToken = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.user.id).select("-password");
+  res.json(user);
+});
+
+
+export { registerUser, loginUser, verifyToken };
 
 
